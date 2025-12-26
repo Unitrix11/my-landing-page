@@ -91,16 +91,17 @@
   .hero-section {
     position: relative;
     background-image: url('images/Bus.jpeg');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
-    background-attachment: fixed;
-    height: 70vh;
+    background-repeat: no-repeat;
+    background-color: #a6356b;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: #fff;
-    margin-top: 70px; /* Account for fixed header */
+    margin-top: 70px;
   }
   
   .hero-overlay {
@@ -240,3 +241,4 @@
   }
 
   
+
