@@ -1,0 +1,241 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    line-height: 1.6;
+  }
+  
+  /* Header */
+  header {
+    background-color: #f1f1f1;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  nav ul.subheadings {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul.subheadings li {
+    position: relative;
+    margin-left: 20px;
+  }
+  
+  nav ul.subheadings li a {
+    text-decoration: none;
+    font-size: 1em;
+    color: #a6356b;
+    transition: color 0.3s ease;
+    padding: 5px 10px;
+  }
+  
+  nav ul.subheadings li a:hover {
+    color: #ff6f91;
+  }
+  
+  /* Dropdown Menu */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 200;
+  }
+  
+  .dropdown-content a {
+    color: #333;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #eee;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Hero Section */
+  .hero-section {
+    position: relative;
+    background-image: url('images/website_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    margin-top: 70px; /* Account for fixed header */
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .hero-content {
+    position: relative;
+    max-width: 800px;
+    z-index: 1;
+    padding: 20px;
+  }
+  
+  .hero-content h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+  .hero-content p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Call-to-Action (Book Now) */
+  .call-to-action {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .call-to-action .cta-text p {
+    font-size: 2em;
+    font-weight: bold;
+    color: #a6356b;
+    margin: 0;
+  }
+  
+  /* Main Content */
+  main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #a6356b;
+    color: #fff;
+  }
+  
+  /* Image Gallery */
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 40px 0;
+  }
+  
+  .gallery-item {
+    background-color: #fff;
+    color: #333;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    width: 280px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .gallery-item h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #a6356b;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  /* CTA Section (Optional) */
+  .cta-section {
+    background-color: #bc986a;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    margin: 40px 0;
+  }
+  
+  /* Additional Info Section */
+  .additional-info {
+    background-color: #eee;
+    color: #333;
+    padding: 20px;
+    margin: 40px 0;
+    text-align: center;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 10px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+    }
+    
+    nav ul.subheadings {
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    
+    nav ul.subheadings li {
+      margin: 10px 0;
+    }
+    
+    .image-gallery {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
