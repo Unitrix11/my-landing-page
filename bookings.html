@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Session — On Wheels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page hero ── */
+    .booking-hero {
+      background: var(--rose);
+      margin-top: var(--header-h);
+      padding: 72px 32px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .booking-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      pointer-events: none;
+    }
+    .booking-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 10%;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+    .booking-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      color: #fff;
+    }
+    .booking-hero-inner .eyebrow { color: rgba(255,255,255,0.55); }
+    .booking-hero-inner h1 { color: #fff; }
+    .booking-hero-inner h1 em { color: #f7c5da; }
+    .booking-hero-inner p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      max-width: 480px;
+      margin-top: 14px;
+    }
+
+    /* ── Layout ── */
+    .booking-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 80px 32px 100px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ── Sidebar info ── */
+    .booking-sidebar {
+      position: sticky;
+      top: calc(var(--header-h) + 32px);
+    }
+    .booking-sidebar h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: var(--charcoal);
+    }
+    .booking-sidebar p {
+      color: var(--mid);
+      font-size: 0.95rem;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .info-cards { display: flex; flex-direction: column; gap: 20px; }
+    .info-card {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 22px;
+      background: var(--rose-light);
+      border-radius: 2px;
+      border-left: 3px solid var(--rose);
+    }
+    .info-card-icon {
+      font-size: 1.3rem;
+      color: var(--rose);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .info-card-text h4 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+    .info-card-text p {
+      font-size: 0.85rem;
+      color: var(--mid);
+      margin: 0;
+    }
+
+    /* ── Form card ── */
+    .booking-form-wrap {
+      background: #fff;
+      border: 1px solid rgba(166,53,107,0.1);
+      border-radius: 4px;
+      padding: 48px 40px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+    .booking-form-wrap h3 {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 32px;
+    }
+    .booking-form-wrap h3 em { font-style: italic; color: var(--rose); }
+
+    /* ── Form fields ── */
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .form-group label .required {
+      color: var(--rose);
+      margin-left: 3px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 2px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      background: var(--cream);
+      transition: border-color 0.25s, box-shadow 0.25s;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(166,53,107,0.08);
+      background: #fff;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+    .form-group input[type="datetime-local"] {
+      color: var(--charcoal);
+    }
+
+    /* Stitch options as pills */
+    .stitch-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .stitch-pill {
+      display: none;
+    }
+    .stitch-pill + label {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--mid);
+      background: var(--cream);
+      user-select: none;
+    }
+    .stitch-pill:checked + label {
+      background: var(--rose);
+      border-color: var(--rose);
+      color: #fff;
+    }
+    .stitch-pill + label:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+    }
+    .stitch-pill:checked + label:hover {
+      color: #fff;
+    }
+
+    .form-divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      margin: 28px 0;
+    }
+
+    /* Submit button */
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--rose);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-submit:hover { background: var(--rose-dark); transform: translateY(-2px); }
+    .btn-submit:disabled { background: #ccc; cursor: not-allowed; transform: none; }
+    .btn-submit .btn-loading { display: none; }
+    .btn-submit.loading .btn-text { display: none; }
+    .btn-submit.loading .btn-loading { display: inline; }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--mid);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* ── Success state ── */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 48px 24px;
+      animation: fadeUp 0.5s ease both;
+    }
+    .success-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .success-message h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+    .success-message p {
+      color: var(--mid);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+    }
+
+    /* ── Error message ── */
+    .error-banner {
+      display: none;
+      background: #fef0f4;
+      border: 1px solid rgba(166,53,107,0.3);
+      border-radius: 2px;
+      padding: 14px 18px;
+      font-size: 0.85rem;
+      color: var(--rose-dark);
+      margin-bottom: 24px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .booking-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 56px 24px 72px;
+      }
+      .booking-sidebar { position: static; }
+      .booking-form-wrap { padding: 36px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html"><img src="images/website_logo_resized.jpg" alt="Logo" /></a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="bookings.html" class="active">Bookings</a>
+            <!--<div class="dropdown-content">
+              <a href="bookings.html">Personal Classes</a>
+              <a href="bookings.html">Group Classes</a>
+            </div>-->
+          </li>
+          <li class="dropdown">
+            <a href="#">Gallery</a>
+            <div class="dropdown-content">
+              <a href="#">Private Events</a>
+              <a href="#">Social Events</a>
+              <a href="#">Corporate Events</a>
+            </div>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="booking-hero">
+    <div class="booking-hero-inner">
+      <span class="eyebrow">Let's Get Started</span>
+      <h1>Book Your<br /><em>Personal Fashion</em></h1>
+      <p>Fill in your details below and I'll get back to you within 24 hours to confirm your booking.</p>
+    </div>
+  </section>
+
+  <!-- Main layout -->
+  <div class="booking-layout">
+
+    <!-- Left sidebar -->
+    <div class="booking-sidebar">
+      <h2>What to <em>expect</em></h2>
+      <p>Every booking starts with a conversation. Once you submit, I'll reach out personally to discuss your vision, measurements, and timeline before anything is cut or sewn.</p>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <span class="info-card-icon">✦</span>
+          <div class="info-card-text">
+            <h4>Response within 24 hours</h4>
+            <p>I personally review every booking and will confirm your slot via call or WhatsApp.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="info-card-icon">◈</span>
+          <div class="info-card-text">
+            <h4>Fully tailored to you</h4>
+            <p>Your measurements, preferences, and occasion are all taken into account before we begin.</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <span class="info-card-icon">♡</span>
+          <div class="info-card-text">
+            <h4>Delivered to your door</h4>
+            <p>No need to travel. Your finished piece comes straight to you, beautifully packaged.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="booking-form-wrap">
+      <h3>Your <em>Details</em></h3>
+
+      <div class="error-banner" id="error-banner">
+        Something went wrong. Please try again or contact me directly.
+      </div>
+
+      <div id="form-container">
+        <div class="form-group">
+          <label for="name">Full Name <span class="required">*</span></label>
+          <input type="text" id="name" placeholder="e.g. Priya Sharma" required />
+        </div>
+
+        <div class="form-group">
+          <label for="mobile">Mobile Number <span class="required">*</span></label>
+          <input type="tel" id="mobile" placeholder="e.g. +91 98765 43210" required />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Delivery Address <span class="required">*</span></label>
+          <textarea id="address" placeholder="Street, City, PIN code…" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="datetime">Preferred Date & Time <span class="required">*</span></label>
+          <input type="datetime-local" id="datetime" required />
+        </div>
+
+        <hr class="form-divider" />
+
+        <div class="form-group">
+          <label>What Would You Like Stitched? <span class="required">*</span></label>
+          <div class="stitch-options">
+            <input class="stitch-pill" type="radio" name="stitch" id="s1" value="Blouse" />
+            <label for="s1">Blouse</label>
+
+            <input class="stitch-pill" type="radio" name="stitch" id="s2" value="Kurti" />
+            <label for="s2">Kurti</label>
+
+            <input class="stitch-pill" type="radio" name="stitch" id="s3" value="Salwar Suit" />
+            <label for="s3">Salwar Suit</label>
+
+            <input class="stitch-pill" type="radio" name="stitch" id="s4" value="Lehenga" />
+            <label for="s4">Lehenga</label>
+
+            <input class="stitch-pill" type="radio" name="stitch" id="s5" value="Dress" />
+            <label for="s5">Dress</label>
+
+            <input class="stitch-pill" type="radio" name="stitch" id="s6" value="Alterations" />
+            <label for="s6">Alterations</label>
+
+            <input class="stitch-pill" type="radio" name="stitch" id="s8" value="Corsets" />
+            <label for="s6">Corsets</label>
+
+            <input class="stitch-pill" type="radio" name="stitch" id="s7" value="Other" />
+            <label for="s7">Something Else</label>
+          </div>
+        </div>
+
+        <div class="form-group" id="other-stitch-group" style="display:none;">
+          <label for="other-stitch">Please describe <span class="required">*</span></label>
+          <input type="text" id="other-stitch" placeholder="Tell me what you have in mind…" />
+        </div>
+
+        <div class="form-group">
+          <label for="notes">Additional Notes <span style="color:var(--mid);font-size:0.7rem;letter-spacing:0;">(optional)</span></label>
+          <textarea id="notes" placeholder="Fabric preferences, occasion, deadline, anything else…"></textarea>
+        </div>
+
+        <button class="btn-submit" id="submit-btn" onclick="submitForm()">
+          <span class="btn-text">Submit Booking Request</span>
+          <span class="btn-loading">Sending…</span>
+        </button>
+
+        <p class="form-note">By submitting, you agree to be contacted about your booking via the number provided.</p>
+      </div>
+
+      <!-- Success state -->
+      <div class="success-message" id="success-message">
+        <span class="success-icon">✦</span>
+        <h3>Booking <em>Received!</em></h3>
+        <p>Thank you! I'll be in touch within 24 hours to confirm your session and chat about the details.</p>
+        <a href="index.html" class="btn-primary">Back to Home</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand">DesignerOnWheels</p>
+      <p class="footer-tagline">Handcrafted fashion, delivered to you.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="#">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <p class="footer-copy">&copy; 2025 DesignerOnWheels. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── Scroll header ──
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── Show "other" field if "Something Else" is picked ──
+    document.querySelectorAll('.stitch-pill').forEach(radio => {
+      radio.addEventListener('change', () => {
+        const otherGroup = document.getElementById('other-stitch-group');
+        otherGroup.style.display = radio.value === 'Other' && radio.checked ? 'block' : 'none';
+      });
+    });
+
+    // ── Set minimum datetime to now ──
+    const dtInput = document.getElementById('datetime');
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    dtInput.min = now.toISOString().slice(0, 16);
+
+    // ──────────────────────────────────────────────────────
+    // 🔧 PASTE YOUR GOOGLE APPS SCRIPT URL BELOW
+    // Replace the placeholder string with your actual URL
+    // It looks like: https://script.google.com/macros/s/XXXX/exec
+    // ──────────────────────────────────────────────────────
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqqtQxIIXW6izOE7Sb1l_ZoqLxZS2FshkiX0fcr4aPmMa9rl2s55bX_edtAiNx5I0t6w/exec";
+
+    async function submitForm() {
+      const name     = document.getElementById('name').value.trim();
+      const mobile   = document.getElementById('mobile').value.trim();
+      const address  = document.getElementById('address').value.trim();
+      const datetime = document.getElementById('datetime').value;
+      const notes    = document.getElementById('notes').value.trim();
+      const errorBanner = document.getElementById('error-banner');
+
+      // Get selected stitch type
+      const stitchRadio = document.querySelector('.stitch-pill:checked');
+      let stitch = stitchRadio ? stitchRadio.value : '';
+      if (stitch === 'Other') {
+        stitch = document.getElementById('other-stitch').value.trim() || 'Other';
+      }
+
+      // Basic validation
+      errorBanner.style.display = 'none';
+      if (!name || !mobile || !address || !datetime || !stitch) {
+        errorBanner.textContent = 'Please fill in all required fields.';
+        errorBanner.style.display = 'block';
+        errorBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        return;
+      }
+
+      // Format datetime nicely for the sheet
+      const dtFormatted = new Date(datetime).toLocaleString('en-IN', {
+        dateStyle: 'full', timeStyle: 'short'
+      });
+
+      const btn = document.getElementById('submit-btn');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, mobile, address, datetime: dtFormatted, stitch, notes })
+        });
+
+        // no-cors means we can't read the response — assume success
+        document.getElementById('form-container').style.display = 'none';
+        document.getElementById('success-message').style.display = 'block';
+
+      } catch (err) {
+        errorBanner.textContent = 'Something went wrong. Please try again.';
+        errorBanner.style.display = 'block';
+        btn.classList.remove('loading');
+        btn.disabled = false;
+      }
+    }
+  </script>
+
+</body>
+</html>

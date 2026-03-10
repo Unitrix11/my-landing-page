@@ -3,28 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Influencer Site</title>
+  <title>Maison — Handcrafted Fashion</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Using Dancing Script for headings -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+
+  <!-- Header -->
+  <header id="site-header">
     <div class="header-container">
       <div class="logo">
-        <img src="images/website_logo_resized.jpg" alt="Logo" />
+        <a href="index.html"><img src="images/website_logo_resized.jpg" alt="Logo" /></a>
       </div>
       <nav>
-        <ul class="subheadings">
-          <li><a href="#">Home</a></li>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
           <li class="dropdown">
-            <a href="#">Bookings</a>
-            <div class="dropdown-content">
+            <a href="bookings.html">Bookings</a>
+            <!--<div class="dropdown-content">
               <a href="#">Personal Classes</a>
               <a href="#">Group Classes</a>
-            </div>
+            </div>-->
           </li>
           <li class="dropdown">
             <a href="#">Gallery</a>
@@ -34,78 +35,147 @@
               <a href="#">Corporate Events</a>
             </div>
           </li>
+          <li><a href="about.html">About</a></li>
           <li><a href="#">Contact</a></li>
-          <li><a href="#">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1>Hand-Made Clothes Right At Your Doorstep!</h1>
-        <p>There's no need to leave the comfort of your home</p>
-        <!-- Optional buttons:
-        <a href="#learn-more" class="hero-btn">Learn More</a>
-        <a href="#donate" class="hero-btn hero-btn-primary">Donate Now</a>
-        -->
-      </div>
-    </section>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/Bus.jpeg" alt="Hero background" />
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-eyebrow">Bespoke. Handcrafted. Yours.</span>
+      <h1>Hand-Made Clothes<br /><em>Right At Your Doorstep</em></h1>
+      <p>No need to leave the comfort of your home — luxury tailored for you.</p>
+      <a href="#" class="btn-primary">Book a Session</a>
+    </div>
+    <div class="hero-scroll-hint">↓</div>
+  </section>
 
-    <!-- Call-to-Action Text -->
-    <section class="call-to-action">
-      <div class="cta-text">
-        <p>Book Now!</p>
-      </div>
-    </section>
+  <!-- Marquee ribbon -->
+  <div class="ribbon">
+    <div class="ribbon-track">
+      <span>Handcrafted Fashion</span><span class="dot">✦</span>
+      <span>Made To Order</span><span class="dot">✦</span>
+      <span>Delivered To You</span><span class="dot">✦</span>
+      <span>Bespoke Designs</span><span class="dot">✦</span>
+      <span>Handcrafted Fashion</span><span class="dot">✦</span>
+      <span>Made To Order</span><span class="dot">✦</span>
+      <span>Delivered To You</span><span class="dot">✦</span>
+      <span>Bespoke Designs</span><span class="dot">✦</span>
+    </div>
+  </div>
 
-    <!-- Image Galleries -->
-    <section class="image-gallery">
-      <div class="gallery-item">
-        <h3>Image Title</h3>
-        <img src="images/Fashion1.jpeg" alt="Gallery Image" />
-      </div>
-      <div class="gallery-item">
-        <h3>Image Title</h3>
-        <img src="images/Fashion2.jpeg" alt="Gallery Image" />
-      </div>
-      <div class="gallery-item">
-        <h3>Image Title</h3>
-        <img src="images/Fashion3.jpeg" alt="Gallery Image" />
-      </div>
-    </section>
-    <section class="image-gallery">
-      <div class="gallery-item">
-        <h3>Image Title</h3>
-        <img src="images/Fashion4.jpeg" alt="Gallery Image" />
-      </div>
-      <div class="gallery-item">
-        <h3>Image Title</h3>
-        <img src="images/Fashion5.jpeg" alt="Gallery Image" />
-      </div>
-      <div class="gallery-item">
-        <h3>Image Title</h3>
-        <img src="images/Fashion6.jpeg" alt="Gallery Image" />
-      </div>
-    </section>
+  <!-- Book Now CTA strip -->
+  <section class="cta-strip">
+    <p>Ready to wear something truly yours?</p>
+    <a href="#" class="btn-outline">Book Now</a>
+  </section>
 
-    <!-- Additional Sections -->
-    <section class="cta-section">
-      <!-- Additional call-to-action content -->
-    </section>
+  <!-- Gallery -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header">
+      <h2>The Collection</h2>
+      <p>Each piece tells a story — and this one is yours.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-card" style="--delay: 0s">
+        <div class="gallery-img-wrap">
+          <img src="images/Fashion1.jpeg" alt="Fashion piece 1" />
+        </div>
+        <div class="gallery-caption">
+          <h3>Signature Drape</h3>
+          <span>Spring Collection</span>
+        </div>
+      </div>
+      <div class="gallery-card" style="--delay: 0.1s">
+        <div class="gallery-img-wrap">
+          <img src="images/Fashion2.jpeg" alt="Fashion piece 2" />
+        </div>
+        <div class="gallery-caption">
+          <h3>The Evening Wrap</h3>
+          <span>Classic Series</span>
+        </div>
+      </div>
+      <div class="gallery-card" style="--delay: 0.2s">
+        <div class="gallery-img-wrap">
+          <img src="images/Fashion3.jpeg" alt="Fashion piece 3" />
+        </div>
+        <div class="gallery-caption">
+          <h3>Woven Dreams</h3>
+          <span>Exclusive Piece</span>
+        </div>
+      </div>
+      <div class="gallery-card" style="--delay: 0.3s">
+        <div class="gallery-img-wrap">
+          <img src="images/Fashion4.jpeg" alt="Fashion piece 4" />
+        </div>
+        <div class="gallery-caption">
+          <h3>Garden Silhouette</h3>
+          <span>Summer Edit</span>
+        </div>
+      </div>
+      <div class="gallery-card" style="--delay: 0.4s">
+        <div class="gallery-img-wrap">
+          <img src="images/Fashion5.jpeg" alt="Fashion piece 5" />
+        </div>
+        <div class="gallery-caption">
+          <h3>Ivory & Thread</h3>
+          <span>Bridal Line</span>
+        </div>
+      </div>
+      <div class="gallery-card" style="--delay: 0.5s">
+        <div class="gallery-img-wrap">
+          <img src="images/Fashion6.jpeg" alt="Fashion piece 6" />
+        </div>
+        <div class="gallery-caption">
+          <h3>The Everyday Edit</h3>
+          <span>Ready To Wear</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="additional-info">
-      <!-- Additional information or footer links -->
-    </section>
-  </main>
+  <!-- About teaser -->
+  <section class="about-teaser">
+    <div class="about-teaser-text">
+      <span class="eyebrow">The Maker</span>
+      <h2>Crafted with intention,<br /><em>stitched with love.</em></h2>
+      <p>Every piece is sewn by hand — no factories, no shortcuts. Just a passion for beautiful clothes and the people who wear them.</p>
+      <a href="about.html" class="btn-primary">Learn More About Me</a>
+    </div>
+    <div class="about-teaser-img">
+      <img src="images/Bus.jpeg" alt="The maker" />
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2021 My Influencer Site</p>
+    <div class="footer-inner">
+      <p class="footer-brand">Maison</p>
+      <p class="footer-tagline">Handcrafted fashion, delivered to you.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="#">Bookings</a>
+        <a href="#">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <p class="footer-copy">&copy; 2025 Maison. All rights reserved.</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Shrink header on scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Maison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="site-header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="index.html"><img src="images/website_logo_resized.jpg" alt="Logo" /></a>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Bookings</a>
+            <div class="dropdown-content">
+              <a href="#">Personal Classes</a>
+              <a href="#">Group Classes</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Gallery</a>
+            <div class="dropdown-content">
+              <a href="#">Private Events</a>
+              <a href="#">Social Events</a>
+              <a href="#">Corporate Events</a>
+            </div>
+          </li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="eyebrow">My Story</span>
+      <h1>The Hands<br /><em>Behind The Craft</em></h1>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="about-intro">
+    <div class="about-intro-inner">
+      <div class="about-intro-img">
+        <img src="images/Bus.jpeg" alt="Portrait" />
+        <div class="about-intro-img-accent"></div>
+      </div>
+      <div class="about-intro-text">
+        <span class="eyebrow">A little about me</span>
+        <h2>Fashion made personal,<br /><em>one stitch at a time.</em></h2>
+        <p>Hi! I'm [Your Name] — a self-taught seamstress, stylist, and lover of all things fabric. What started as a childhood hobby at my grandmother's sewing machine has grown into a full-fledged passion for crafting clothes that are as unique as the people who wear them.</p>
+        <p>Every piece I make is cut, sewn, and finished entirely by hand. No shortcuts. No factory floors. Just care, creativity, and an obsession with getting the details right.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values / Pillars -->
+  <section class="values-section">
+    <div class="section-header">
+      <h2>What I Stand For</h2>
+      <p>The principles that guide every piece I create.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <span class="value-icon">✦</span>
+        <h3>Craftsmanship</h3>
+        <p>Every seam, button, and hem is treated as a signature. I take pride in work that lasts and looks beautiful from every angle.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">♡</span>
+        <h3>Intentionality</h3>
+        <p>I don't do fast fashion. Each order is made specifically for you — your measurements, your preferences, your story.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">◈</span>
+        <h3>Accessibility</h3>
+        <p>Luxury shouldn't be out of reach. I bring the bespoke experience directly to your door, without the designer price tag.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process / Timeline -->
+  <section class="process-section">
+    <div class="section-header light">
+      <span class="eyebrow">How It Works</span>
+      <h2>From Idea to Doorstep</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <div class="step-text">
+          <h3>Consultation</h3>
+          <p>We chat about your vision, style references, occasion, and measurements — all from wherever you are.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <div class="step-text">
+          <h3>Design & Fabric Selection</h3>
+          <p>I present fabric swatches and sketch a design tailored to you. You approve before anything is cut.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <div class="step-text">
+          <h3>Handcrafting</h3>
+          <p>Your piece is sewn entirely by hand, with regular photo updates so you're never left wondering.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">04</div>
+        <div class="step-text">
+          <h3>Delivery</h3>
+          <p>Your finished piece arrives at your door, beautifully packaged and ready to wear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="about-cta">
+    <h2>Ready to wear something<br /><em>made just for you?</em></h2>
+    <a href="#" class="btn-primary">Book a Consultation</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <p class="footer-brand">Maison</p>
+      <p class="footer-tagline">Handcrafted fashion, delivered to you.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="#">Bookings</a>
+        <a href="#">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <p class="footer-copy">&copy; 2025 Maison. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('site-header').classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
+</body>
+</html>
